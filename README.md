@@ -1,5 +1,23 @@
+# Free Personal HTML Template
+**Gulp**, **PUG**, **SASS**
 
--------
+**Install**
+```sh
+npm install
+```
+**Development**
+```sh
+make dev # or npm start
+```
+**Build**
+```sh
+make build # or npm run build
+```
+
+## Description
+
+***
+
 1.  [HTML structure](#html)
 2.  [Fonts](#fonts)
 3.  [CSS styles & plugins](#css)
