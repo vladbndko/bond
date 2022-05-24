@@ -1,0 +1,246 @@
+@use "sass:color";
+@use "sass:map";
+@import "variables";
+@import "mixins";
+
+$scroll-foreground-color: $primary;
+$scroll-background-color: color.mix($scroll-foreground-color, white, 50%);
+
+%primary-color {
+  color: $primary;
+}
+
+%primary-background-color {
+  background-color: $primary;
+}
+
+%primary-border-color {
+  border-color: $primary;
+}
+
+%primary-outline {
+  outline: 2px solid rgba($primary, 0.5);
+}
+
+html {
+  ::selection {
+    background-color: rgba($primary, 0.7);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $scroll-foreground-color;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $scroll-background-color;
+  }
+}
+
+body {
+  scrollbar-face-color: $scroll-foreground-color;
+  scrollbar-track-color: $scroll-background-color;
+}
+
+.btn {
+  &.is-primary {
+    @extend %primary-background-color;
+
+    &:active {
+      background-color: color.mix($primary, black, 80%);
+    }
+
+    &:hover {
+      background-color: color.mix($primary, white, 80%);
+    }
+
+    &:focus {
+      box-shadow: $element-box-shadow-focus rgba($primary, $element-outline-opacity);
+    }
+  }
+}
+
+input.input,
+select.select,
+textarea.textarea {
+  &:focus {
+    box-shadow: $element-box-shadow-focus rgba($primary, $element-outline-opacity);
+
+    @extend %primary-border-color;
+  }
+}
+
+input[type="checkbox"].checkbox,
+input[type="radio"].radio {
+  &:focus + label::before {
+    box-shadow: $element-box-shadow-focus rgba($primary, $element-outline-opacity);
+  }
+
+  &:checked + label {
+    &::before {
+      @extend %primary-border-color;
+    }
+
+    &::after {
+      @extend %primary-background-color;
+    }
+  }
+}
+
+a {
+  &:not([class*="btn"]) {
+    &:link,
+    &:visited {
+      @extend %primary-color;
+    }
+
+    &:active {
+      color: color.mix($primary, black, 80%);
+    }
+
+    &:hover {
+      color: color.mix($primary, white, 80%);
+    }
+  }
+}
+
+.color-primary {
+  @extend %primary-color;
+}
+
+.progress-line {
+  @extend %primary-background-color;
+}
+
+.carousel {
+  &-dot {
+    &.is-active {
+      @extend %primary-background-color;
+    }
+  }
+}
+
+.bnd {
+  // Preloader
+  &-preloader {
+    .lds-facebook div {
+      @extend %primary-background-color;
+    }
+  }
+
+  // Header
+  &-header {
+    .hamburger {
+      &:focus,
+      &:hover {
+        @extend %primary-color;
+      }
+    }
+  }
+
+  // Sidenav
+  &-sidenav {
+    .sidenav-close {
+      &:focus,
+      &:hover {
+        @extend %primary-color;
+      }
+    }
+
+    .sidenav-menu {
+      li {
+        a {
+          &::after {
+            @extend %primary-background-color;
+          }
+
+          &:active {
+            @extend %primary-color;
+          }
+        }
+      }
+    }
+
+    .sidenav-contacts {
+      li {
+        a {
+          &:hover,
+          &:active {
+            @extend %primary-color;
+          }
+        }
+      }
+    }
+  }
+
+  // Social and share
+  &-social-list,
+  &-share-list {
+    li {
+      a {
+        &:hover,
+        &:active {
+          @extend %primary-background-color;
+          @extend %primary-border-color;
+        }
+      }
+    }
+  }
+
+  // Experience
+  &-experience {
+    .experience-item {
+      &-dot {
+        @extend %primary-border-color;
+      }
+    }
+  }
+
+  // Portfolio
+  &-portfolio {
+    .portfolio-controls {
+      li {
+        button {
+          &:hover {
+            @extend %primary-color;
+          }
+
+          &.is-active {
+            @extend %primary-color;
+          }
+        }
+      }
+    }
+  }
+
+  // Modals
+  &-modal {
+    .modal-close {
+      &:hover {
+        @extend %primary-color;
+      }
+    }
+  }
+
+  // Posts
+  &-posts {
+    .post {
+      .post-title {
+        a {
+          &:hover,
+          &:active {
+            color: $primary !important;
+          }
+        }
+      }
+    }
+  }
+
+  // Contacts
+  &-contacts {
+    .contact {
+      &-icon {
+        @extend %primary-color;
+      }
+    }
+  }
+}

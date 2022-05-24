@@ -1,0 +1,76 @@
+@use 'sass:map';
+@import 'variables';
+@import 'mixins';
+
+/* === BASE LAYOUT */
+html,
+body {
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+
+  @include media(md) {
+    font-size: 17px;
+  }
+
+  @include media(xl) {
+    font-size: 18px;
+  }
+
+  ::selection {
+    color: white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.6rem;
+    height: 0.6rem;
+  }
+}
+
+body {
+  position: relative;
+  min-width: 320px;
+  color: map.get($gray, 900);
+  background-color: map.get($gray, 50);
+  font-family: Jost, sans-serif;
+  font-weight: normal;
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+  &.loaded {
+    overflow-y: visible;
+  }
+}
+
+.bnd {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    opacity: 0;
+  }
+
+  &-header {
+    // ...
+  }
+
+  &-main {
+    flex-grow: 1;
+  }
+
+  &-footer {
+    flex-shrink: 0;
+  }
+
+  &-section {
+    position: relative;
+    padding: 7rem 0;
+  }
+}
+
+.img-fluid {
+  @extend %img-fluid;
+}

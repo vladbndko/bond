@@ -1,0 +1,9 @@
+include ../data/person
+
+// === SOCIAL LINKS (BEGIN)
+ul(class="bnd-social-list")
+  each icon in person.social
+    li
+      a(href="#", target="_blank")
+        i(class=`fab fa-${icon}`)
+// === SOCIAL LINKS (END)

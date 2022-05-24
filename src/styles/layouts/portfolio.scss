@@ -1,0 +1,126 @@
+@use "sass:color";
+@use "sass:map";
+@use "sass:math";
+@import "../variables";
+@import "../mixins";
+
+/* === PORTFOLIO */
+.bnd-portfolio {
+  .portfolio-controls {
+    @include reset-list;
+
+    margin: 3rem 0 2rem;
+    text-align: center;
+
+    li {
+      display: inline-block;
+
+      button {
+        border: none;
+        background-color: transparent;
+        padding: 0.35rem 0.7rem;
+
+        @include transition;
+      }
+    }
+  }
+
+  .portfolio-item {
+    display: block;
+    max-width: 100%;
+    float: left;
+
+    // padding: 3px;
+
+    @include media(md) {
+      max-width: 50%;
+    }
+
+    @include media(lg) {
+      max-width: math.div(100%, 3);
+    }
+
+    a {
+      display: block;
+      overflow: hidden;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: 4;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0.6;
+        background-color: $image-overlay-background;
+
+        @include transition(400ms);
+
+        @include media(md) {
+          opacity: 0.2;
+        }
+      }
+
+      &:hover {
+        @include media(md) {
+          &::before {
+            opacity: 1;
+          }
+
+          img {
+            transform: scale(1.15);
+          }
+
+          .portfolio-item-details {
+            bottom: 0;
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    &-image {
+      @extend %img-fluid;
+      @include transition(transform, 400ms);
+
+      position: relative;
+      z-index: 3;
+      transform: scale(1);
+    }
+
+    &-details {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      color: white;
+      z-index: 5;
+
+      @include transition(all, 400ms);
+
+      @include media(md) {
+        opacity: 0;
+        bottom: -50px;
+      }
+
+      h3 {
+        margin-bottom: 0;
+      }
+
+      p {
+        margin: 1em 0 0;
+        font-size: 80%;
+      }
+    }
+
+    &-title {
+      font-size: map.get($sizes, 5);
+    }
+  }
+}

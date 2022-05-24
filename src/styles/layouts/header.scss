@@ -1,0 +1,42 @@
+@use 'sass:color';
+@use 'sass:map';
+@import '../variables';
+@import '../mixins';
+
+/* === HEADER */
+.bnd-header {
+  background-color: map.get($gray, 50);
+  position: sticky;
+  top: 0;
+  z-index: map.get($z-index, header);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .logo {
+    display: inline-block;
+    max-width: 100px;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      color: map.get($gray, 900);
+    }
+  }
+
+  .hamburger {
+    color: map.get($gray, 900);
+
+    @extend %header-button;
+  }
+
+  // 1
+  &-1 {
+    padding: map.get(map.get($box-padding, xs), y) map.get(map.get($box-padding, xs), x);
+
+    @include media(xl) {
+      padding: map.get(map.get($box-padding, xl), y) map.get(map.get($box-padding, xl), x);
+    }
+  }
+}

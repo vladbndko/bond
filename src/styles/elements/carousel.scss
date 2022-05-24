@@ -1,0 +1,23 @@
+@use "sass:color";
+@use "sass:map";
+@import "../variables";
+@import "../mixins";
+
+/* === CAROUSEL */
+.carousel {
+  &-dots {
+    // ...
+  }
+
+  &-dot {
+    background: map.get($gray, 400);
+    border-radius: $element-border-radius;
+    height: 0.55rem;
+    width: 0.55rem;
+    margin: 5px;
+
+    &.is-active {
+      transform: none;
+    }
+  }
+}

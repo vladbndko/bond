@@ -1,0 +1,23 @@
+@use "sass:color";
+@use "sass:map";
+@use "sass:math";
+@import "../variables";
+@import "../mixins";
+
+/* === PRELOADER */
+.bnd-preloader {
+  background-color: map.get($gray, 50);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: map.get($z-index, preloader);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @import "../preloaders/facebook";
+}

@@ -1,0 +1,52 @@
+@use "sass:color";
+@use "sass:map";
+@use "sass:math";
+@import "../variables";
+@import "../mixins";
+
+/* === TESTIMONIAL */
+.bnd-testimonial {
+  .testimonial-carousel {
+    padding: 3rem 0;
+  }
+
+  .testimonial {
+    padding: map.get(map.get($box-padding, xs), y) map.get(map.get($box-padding, xs), x);
+
+    @include media(xl) {
+      padding: map.get(map.get($box-padding, xl), y) map.get(map.get($box-padding, xl), x);
+    }
+
+    &-rating {
+      margin-bottom: 1rem;
+
+      i {
+        color: map.get($orange, 500);
+      }
+    }
+
+    &-person {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+    }
+
+    &-photo {
+      width: 4rem;
+      height: 4rem;
+      flex: 1 0 4rem;
+      max-width: 4rem;
+      border-radius: 50%;
+    }
+
+    &-info {
+      padding-left: 1rem;
+      flex: 1 0 100%;
+      max-width: 100%;
+
+      span {
+        color: map.get($gray, 500);
+      }
+    }
+  }
+}

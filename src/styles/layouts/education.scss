@@ -1,0 +1,19 @@
+@use "sass:color";
+@use "sass:map";
+@import "../variables";
+@import "../mixins";
+
+/* === EDUCATION */
+.bnd-education {
+  .education-list {
+    @include reset-list;
+
+    li {
+      &:first-of-type {
+        margin-top: 3rem;
+      }
+
+      margin-top: 2rem;
+    }
+  }
+}

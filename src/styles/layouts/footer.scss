@@ -1,0 +1,24 @@
+@use 'sass:color';
+@use 'sass:map';
+@import '../variables';
+@import '../mixins';
+
+/* === FOOTER */
+.bnd-footer {
+  background-color: map.get($gray, 900);
+
+  // 1
+  &-1 {
+    display: flex;
+    padding: map.get(map.get($box-padding, xs), y) * 2 0;
+
+    @include media(xl) {
+      padding: map.get(map.get($box-padding, xl), y) * 2 0;
+    }
+  }
+
+  .copyright {
+    color: map.get($gray, 600);
+    margin-top: 2rem;
+  }
+}

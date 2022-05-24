@@ -1,0 +1,18 @@
+@use "sass:color";
+@use "sass:map";
+@import "../variables";
+@import "../mixins";
+
+/* === OVERLAY */
+.bnd-overlay {
+  @extend %overlay;
+  @include transition(opacity, 1s);
+
+  opacity: 0;
+  transform: scale(0);
+
+  &.is-active {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,54 @@
+@use "sass:color";
+@use "sass:map";
+@use "sass:math";
+@import "../variables";
+@import "../mixins";
+
+/* === POSTS */
+.bnd-posts {
+  background-color: white;
+
+  .post {
+    margin-top: 3rem;
+
+    &-preview {
+      display: block;
+      overflow: hidden;
+
+      &:hover {
+        @include media(md) {
+          .post-thumbnail {
+            transform: scale(1.15);
+          }
+        }
+      }
+    }
+
+    .post-thumbnail {
+      @extend %img-fluid;
+      @include transition(transform, 400ms);
+
+      position: relative;
+      z-index: 4;
+      transform: scale(1);
+    }
+
+    .post-title {
+      margin-top: 1rem;
+      font-weight: 500;
+      font-size: map.get($sizes, 5);
+
+      a {
+        &:link,
+        &:visited {
+          color: map.get($gray, 900);
+        }
+      }
+    }
+
+    .post-date {
+      font-size: 80%;
+      color: map.get($gray, 500);
+    }
+  }
+}

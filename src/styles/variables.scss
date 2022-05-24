@@ -1,0 +1,77 @@
+@use "sass:math";
+@use "sass:map";
+
+// Colors
+$gray: (
+  50: #fafafa,
+  100: #d7ccc8,
+  200: #eee,
+  300: #e0e0e0,
+  400: #bdbdbd,
+  500: #9e9e9e,
+  600: #757575,
+  700: #616161,
+  800: #424242,
+  900: #222,
+  950: #1e1e1e,
+);
+$blue: (
+  500: #2196f3
+);
+$green: (
+  500: #4caf50,
+);
+$orange: (
+  500: #ff9800,
+);
+$red: (
+  500: #f44336
+);
+
+// Breakpoints
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
+
+// Text
+$sizes: (
+  1: #{calc(2.5rem + 1.3vw)},
+  2: #{calc(2.2rem + 0.9vw)},
+  3: #{calc(1.4rem + 0.6vw)},
+  4: #{calc(1.3rem + 0.3vw)},
+  5: 1.2rem,
+  6: 1rem,
+);
+$weights: (400, 500, 600);
+
+// Properties
+$element-border-radius: 0.1rem;
+$element-box-shadow-focus: 0 0 0 0.15rem;
+$element-line-height: 1.2;
+$element-outline-opacity: 0.3;
+
+// Base
+$z-index: (
+  options: 700,
+  header: 800,
+  overlay: 900,
+  nav: 1000,
+  preloader: 2000,
+);
+$box-padding: (
+  xs: (
+    x: 20px,
+    y: 15px,
+  ),
+  xl: (
+    x: 30px,
+    y: 30px,
+  ),
+);
+
+// Media
+$image-overlay-background: rgba(map.get($gray, 900), 0.55);

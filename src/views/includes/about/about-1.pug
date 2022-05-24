@@ -1,0 +1,26 @@
+include ../../data/env
+include ../../data/theme
+include ../../data/person
+
+// === ABOUT (BEGIN)
+section(class="bnd-section bnd-about bnd-about-1", id="about")
+  div(class="container")
+    div(class="row d-flex align-items-center")
+      div(class="col-lg-6 mb-4 mb-lg-0")
+        img(class="img-fluid" data-aos="fade-right" src="img/placeholder/1080x1620.jpg" alt="1080x1620")
+      div(class="col-lg-5 offset-lg-1")
+        span(class="color-primary") About me
+        h2 Biography
+        p(class="pt-3" data-aos="fade-up") Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+        table(class="bnd-about-table mt-4" data-aos="fade-up")
+          each item in person.bio
+            tr
+              th(scope="row")= item.name
+              td= item.value
+        a(class="btn is-primary mt-4" data-aos="fade-up" href="cv.pdf" download) Download CV
+    div(class="row mt-5")
+      each achievement in person.achievements
+        div(class="col-6 col-lg py-4 text-center")
+          div(class="text-3 js-counter" data-from="0" data-to=achievement.value data-duration=achievement.duration)= achievement.value
+          p= achievement.name
+// === ABOUT (END)

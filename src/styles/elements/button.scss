@@ -1,0 +1,70 @@
+@use "sass:map";
+@import "../variables";
+@import "../mixins";
+
+/* === BUTTONS */
+@keyframes button-loading-rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.btn {
+  display: inline-block;
+  position: relative;
+  border: none;
+  font-size: 80%;
+  padding: 1.2rem 3rem;
+  border-radius: $element-border-radius;
+  text-align: center;
+  cursor: pointer;
+  word-break: break-word;
+  font-weight: 400;
+  white-space: nowrap;
+  text-transform: uppercase;
+  text-decoration: none;
+  line-height: $element-line-height;
+  color: white;
+  letter-spacing: 1px;
+
+  @include transition;
+
+  &:hover,
+  &:active,
+  &:focus {
+    outline: none;
+    text-decoration: none;
+    color: white;
+  }
+
+  &[disabled] {
+    opacity: 0.75;
+    cursor: default;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  &.is-loading {
+    color: transparent !important;
+
+    &::after {
+      content: "";
+      width: 1.5em;
+      height: 1.5em;
+      position: absolute;
+      border-width: 2px;
+      border-style: solid;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      animation: button-loading-rotate 0.5s ease-in-out infinite;
+      border-color: rgb(255 255 255 / 25%);
+      border-top-color: white;
+    }
+  }
+}

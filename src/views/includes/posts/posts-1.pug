@@ -1,0 +1,20 @@
+include ../../data/theme
+include ../../data/env
+
+// === POSTS (BEGIN)
+section(class="bnd-section bnd-posts bnd-posts-1", id="blog")
+  div(class="container")
+    div(class="row")
+      div(class="col-12")
+        span(class="color-primary") Latest posts
+        h2 Blog
+    div(class="row")
+      each post, index in theme.posts
+        div(class="col-md-6 col-lg-4")
+          div(class="post" data-aos="zoom-in" data-aos-delay=index * 100)
+            a(class="post-preview" href="javascript:void(0)" data-modal-open="post-modal")
+              img(class="post-thumbnail" src="img/placeholder/1440x1120.jpg" alt=post.title)
+            h3(class="post-title")
+              a(href="javascript:void(0)" data-modal-open="post-modal")= post.title
+            span(class="post-date")= post.published
+// === POSTS (END)

@@ -1,0 +1,58 @@
+@use "sass:color";
+@use "sass:map";
+@use "sass:math";
+@import "../variables";
+@import "../mixins";
+
+/* === CONTACTS */
+.bnd-contacts {
+  background-color: white;
+
+  .contacts-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+
+    @include reset-list;
+
+    margin-top: 3rem;
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 100%;
+
+    @include media(sm) {
+      flex: 1 0 math.div(100%, 3);
+    }
+
+    + .contact {
+      margin-top: 1.75rem;
+
+      @include media(sm) {
+        margin-top: 0;
+      }
+    }
+
+    &-value {
+      display: inline-block;
+      width: 100%;
+      padding-top: 0.65rem;
+    }
+
+    &-icon {
+      .icon {
+        width: 2rem;
+        height: auto;
+      }
+    }
+  }
+
+  .contact-form {
+    margin-top: 2rem;
+  }
+}

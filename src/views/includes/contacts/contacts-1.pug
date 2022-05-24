@@ -1,0 +1,56 @@
+include ../../data/theme
+include ../../data/person
+
+// === CONTACTS (BEGIN)
+section(class="bnd-section bnd-contacts bnd-contacts-1" id="contacts")
+  div(class="container")
+    div(class="row")
+      div(class="col-12")
+        div(class="text-center")
+          span(class="color-primary") Connection with me
+          h2 Contacts
+      div(class="col-lg-10 offset-lg-1")
+        ul(class="contacts-list")
+          li(class="contact" data-aos="zoom-in" data-aos-delay="50")
+            span(class="contact-icon"): include ../icons/heroicons/device-mobile.svg
+            span(class="contact-value")= person.contacts.phone.value
+          li(class="contact" data-aos="zoom-in" data-aos-delay="100")
+            span(class="contact-icon"): include ../icons/heroicons/mail.svg
+            span(class="contact-value")= person.contacts.email.value
+          li(class="contact" data-aos="zoom-in" data-aos-delay="150")
+            span(class="contact-icon"): include ../icons/heroicons/location-marker.svg
+            span(class="contact-value")= person.contacts.location.value
+      div(class="col-lg-10 offset-lg-1 contact-form")
+        div(class="contact-form")
+          h3 Get in touch
+          p(class="mb-4") Please fill out the form to contact with me. Or call between 10:00 a.m. and 18:00 p.m. ET, Monday through Friday
+          form(class="row" id="js-contact-form")
+            // === Hidden Required Fields (BEGIN)
+            input(type="hidden" name="site_name" value=theme.name)
+            input(type="hidden" name="admin_email" value=theme.email)
+            input(type="hidden" name="form_subject" value="Contact")
+            input(type="hidden" name="action" value="contact")
+            // === Hidden Required Fields (END)
+            div(class="col-md-6 mb-3")
+              label(for="name")
+                | Name
+                span(class="color-danger")  *
+              input(class="input" id="name" name="name" required)
+            div(class="col-md-6 mb-3")
+              label(for="email")
+                | Email
+                span(class="color-danger")  *
+              input(class="input" type="email" id="email" name="email" required)
+            div(class="col-12 mb-3")
+              label(for="subject")
+                | Subject
+                span(class="color-danger")  *
+              input(class="input" id="subject" name="subject" required)
+            div(class="col-12 mb-3")
+              label(for="message")
+                | Message
+                span(class="color-danger")  *
+              textarea(class="textarea" id="message" name="message" rows="4" required)
+            div(class="col-12")
+              button(class="btn is-primary mt-4") Send message
+// === CONTACTS (END)

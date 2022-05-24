@@ -1,0 +1,52 @@
+@use 'sass:map';
+@use 'sass:math';
+@import 'variables';
+@import 'mixins';
+
+/* === DARK (BEGIN) */
+body.dark {
+  color: map.get($gray, 50);
+  background-color: map.get($gray, 950);
+
+  .bnd-header,
+  .bnd-footer,
+  .modal-container,
+  .bnd-preloader {
+    background-color: map.get($gray, 950);
+  }
+
+  .bnd-about,
+  .bnd-experience,
+  .bnd-posts,
+  .bnd-contacts,
+  .experience-item-dot {
+    background-color: map.get($gray, 900);
+  }
+
+  .progress-bar {
+    border-color: map.get($gray, 800);
+  }
+
+  .post .post-title a:link,
+  .post .post-title a:visited,
+  .logo svg,
+  .hamburger,
+  .portfolio-controls li button,
+  input.input,
+  select.select,
+  textarea.textarea,
+  .modal-close {
+    color: map.get($gray, 50);
+  }
+
+  .progress-bar,
+  .experience-item::before,
+  .carousel-dot:not([class*='active']),
+  input.input,
+  select.select,
+  textarea.textarea {
+    background-color: map.get($gray, 800);
+  }
+}
+
+/* === DARK (END) */

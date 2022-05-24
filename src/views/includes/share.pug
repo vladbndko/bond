@@ -1,0 +1,11 @@
+include ../data/shares
+
+// === SHARE (BEGIN)
+div(class="bnd-share")
+  span(class="bnd-share-text") Share:
+  ul(class="bnd-share-list")
+    each share in shares
+      li
+        a(href=share.href target="_blank")
+          i(class=`fab fa-${share.icon}`)
+// === SHARE (END)

@@ -1,0 +1,29 @@
+include ../../data/person
+include ../../data/env
+
+// === TESTIMONIAL (BEGIN)
+section(class="bnd-section bnd-testimonial bnd-testimonial-1" id="testimonial")
+  div(class="container")
+    div(class="row")
+      div(class="col-12")
+        div(class="text-center")
+          span(class="color-primary") I am proud of my work
+          h2 Testimonial
+      div(class="col-12")
+        div(class="splide testimonial-carousel" id="js-testimonial")
+          div(class="splide__track")
+            ul(class="splide__list")
+              each testimonial in person.testimonial
+                li(class="splide__slide")
+                  div(class="testimonial")
+                    div(class="testimonial-rating")
+                      each i in [1, 2, 3, 4, 5]
+                        i(class="fas fa-star")
+                    div(class="testimonial-text")= testimonial.text
+                    div(class="testimonial-person")
+                      img(class="testimonial-photo" src="img/placeholder/128x128.jpg" alt=testimonial.name)
+                      div(class="testimonial-info")
+                        strong= testimonial.name
+                        br
+                        span= testimonial.position
+// === TESTIMONIAL (END)

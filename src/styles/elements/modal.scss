@@ -1,0 +1,143 @@
+@use 'sass:map';
+@use 'sass:math';
+@import '../variables';
+@import '../mixins';
+
+/* === MODALS */
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes modal-slide-in {
+  from {
+    transform: translateY(15%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes modal-slide-out {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-10%);
+  }
+}
+
+.bnd-modal {
+  position: relative;
+
+  &-slide {
+    display: none;
+
+    &.is-open {
+      display: block;
+    }
+
+    &[aria-hidden='false'] {
+      .modal-overlay {
+        animation: modal-fade-in 0.3s cubic-bezier(0, 0, 0.2, 1);
+      }
+
+      .modal-container {
+        animation: modal-slide-in 0.3s cubic-bezier(0, 0, 0.2, 1);
+      }
+    }
+
+    &[aria-hidden='true'] {
+      .modal-overlay {
+        animation: modal-fade-out 0.3s cubic-bezier(0, 0, 0.2, 1);
+      }
+
+      .modal-container {
+        animation: modal-slide-out 0.3s cubic-bezier(0, 0, 0.2, 1);
+      }
+    }
+  }
+
+  .modal-overlay {
+    @extend %overlay;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-container {
+    background-color: white;
+    width: 100%;
+    max-height: 100vh;
+    border-radius: $element-border-radius;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: map.get(map.get($box-padding, xs), y) map.get(map.get($box-padding, xs), x);
+
+    @include media(xl) {
+      width: calc(100% - calc(#{map.get(map.get($box-padding, xl), y)} * 2));
+      max-height: calc(100vh - calc(#{map.get(map.get($box-padding, xl), x)} * 2));
+      padding: map.get(map.get($box-padding, xl), y) map.get(map.get($box-padding, xl), x);
+    }
+
+    @each $breakpoint, $width in $breakpoints {
+      &.is-#{$breakpoint} {
+        @if $breakpoint != xs {
+          max-width: $width;
+        }
+      }
+    }
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .modal-close {
+    background: transparent;
+    border: none;
+    font-size: map.get($sizes, 3);
+
+    @include transition;
+  }
+
+  .modal-content {
+    padding-top: map.get(map.get($box-padding, xs), x) * 2;
+
+    @include media(xl) {
+      padding-top: map.get(map.get($box-padding, xl), x) * 2;
+    }
+
+    img {
+      @extend %img-fluid;
+    }
+  }
+
+  .modal-footer {
+    padding-top: map.get(map.get($box-padding, xs), x);
+
+    @include media(xl) {
+      padding-top: map.get(map.get($box-padding, xl), x);
+    }
+  }
+}

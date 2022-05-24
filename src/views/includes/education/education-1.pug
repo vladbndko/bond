@@ -1,0 +1,15 @@
+include ../../data/person
+
+// === EDUCATION (BEGIN)
+div(class="bnd-education")
+  span(class="color-primary") Where have I studied
+  h2 Education
+  ul(class="education-list")
+    each education in person.educations
+      li(data-aos="fade-left")
+        span= education.years
+        br
+        strong= education.name
+        br
+        span= education.address
+// === EDUCATION (END)

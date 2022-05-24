@@ -1,0 +1,24 @@
+include ../data/theme
+include ../data/person
+
+// === SIDENAV (BEGIN)
+nav(class="bnd-sidenav" id="js-sidenav")
+  button(type="button" id="js-sidenav-close" class="sidenav-close")
+    include icons/heroicons/close.svg
+  div(class="sidenav-section")
+    // === SIDENAV MENU (BEGIN)
+    ul(class="sidenav-menu", id="js-sidenav-menu")
+      each item in theme.menu
+        li
+          a(href=item.href)= item.label
+    // === SIDENAV MENU (END)
+    // === SIDENAV CONTACTS (BEGIN)
+    ul(class="sidenav-contacts")
+      each contact in person.contacts
+        li
+          span= contact.label
+          a(href="#")= contact.value
+    // === SIDENAV CONTACTS (END)
+  div(class="sidenav-section")
+    include social
+// === SIDENAV (END)

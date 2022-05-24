@@ -1,0 +1,76 @@
+@use "sass:color";
+@use "sass:map";
+@use "sass:math";
+@import "../variables";
+@import "../mixins";
+
+/* === EXPERIENCE */
+.bnd-experience {
+  background-color: white;
+
+  .experience-items {
+    @include media(lg) {
+      margin-top: 3rem;
+    }
+  }
+
+  .experience-item {
+    margin-top: 3rem;
+
+    @include media(lg) {
+      margin-top: 0;
+      display: flex;
+      padding-bottom: 5rem;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        z-index: 3;
+        height: 100%;
+        width: 1px;
+        left: 30%;
+        background-color: map.get($gray, 200);
+      }
+
+      &-dot {
+        $size: 15px;
+
+        position: absolute;
+        top: 0;
+        z-index: 4;
+        border-radius: 50%;
+        border-width: 3px;
+        border-style: solid;
+        width: $size;
+        height: $size;
+        background-color: white;
+        left: calc(30% - #{math.floor(math.div($size, 2))});
+      }
+    }
+
+    &:last-of-type::before {
+      @include media(lg) {
+        display: none;
+      }
+    }
+
+    &-left {
+      @include media(lg) {
+        flex: 1 0 30%;
+        padding-right: 2rem;
+      }
+    }
+
+    &-right {
+      margin-top: 1rem;
+
+      @include media(lg) {
+        flex: 1 0 70%;
+        margin-top: 0;
+        padding-left: 2rem;
+      }
+    }
+  }
+}

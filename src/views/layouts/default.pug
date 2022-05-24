@@ -1,0 +1,43 @@
+include ../data/env
+include ../data/theme
+
+block variables
+doctype html
+html(lang="en")
+  head
+    // === META (BEGIN)
+    meta(charset="UTF-8")
+    title #{title} — #{theme.name}
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    meta(name="robots", content="index, follow")
+    meta(name="description" content=theme.description)
+    meta(name="keywords" content=theme.keywords)
+    meta(name="author" content=theme.author)
+    meta(name="theme-color", content=theme.color)
+    // === META (END)
+    // === FAVICONS (BEGIN)
+    link(rel="shortcut icon", href="img/favicon/favicon.ico")
+    link(rel="shortcut icon", href="img/favicon/icon.svg" type="image/svg+xml")
+    link(rel="apple-touch-icon", href="img/favicon/apple.png")
+    // === FAVICONS (END)
+    include ../includes/stylesheet
+  body(class=[bodyClass, ''])
+    // === PRELOADER (BEGIN)
+    div(class="bnd-preloader" id="js-preloader")
+      include ../includes/preloaders/facebook
+    // === PRELOADER (END)
+    //
+      If you want to enable dark mode just add a class 'dark' to body.
+      For Example: <body class="#{bodyClass} dark">
+    // === MAIN CONTAINER (BEGIN)
+    div(class="bnd-container" id="js-container")
+      include ../includes/header/header-1
+      // === MAIN CONTENT (BEGIN)
+      main(class="bnd-main" id="js-main")
+        block content
+      // === MAIN CONTENT (END)
+      include ../includes/portfolio/portfolio-modal
+      include ../includes/posts/post-modal
+      include ../includes/footer/footer-1
+    // === MAIN CONTAINER (END)
+    include ../includes/scripts

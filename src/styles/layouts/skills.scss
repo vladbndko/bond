@@ -1,0 +1,21 @@
+@use "sass:color";
+@use "sass:map";
+@import "../variables";
+@import "../mixins";
+
+/* === SKILLS */
+.bnd-skills {
+  .skills-list {
+    @include reset-list;
+
+    li {
+      &:first-of-type {
+        margin-top: 3rem;
+      }
+
+      + li {
+        margin-top: 0.6rem;
+      }
+    }
+  }
+}

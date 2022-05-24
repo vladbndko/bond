@@ -1,0 +1,99 @@
+@use "sass:map";
+@import "variables";
+@import "mixins";
+
+/* === TYPOGRAPHY */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+@each $name, $size in $sizes {
+  h#{$name},
+  .h#{$name} {
+    font-size: $size;
+  }
+}
+
+.text {
+  @each $name, $size in $sizes {
+    &-#{$name} {
+      font-size: $size;
+    }
+  }
+
+  @each $weight in $weights {
+    &-#{$weight} {
+      font-weight: $weight;
+    }
+  }
+}
+
+.color {
+  &-gray {
+    color: map.get($gray, 500);
+  }
+
+  &-info {
+    color: map.get($blue, 500);
+  }
+
+  &-success {
+    color: map.get($green, 500);
+  }
+
+  &-warning {
+    color: map.get($orange, 500);
+  }
+
+  &-danger {
+    color: map.get($red, 500);
+  }
+}
+
+.valid-message {
+  @extend .color-success;
+}
+
+.invalid-message {
+  @extend .color-danger;
+}
+
+.valid-message,
+.invalid-message {
+  display: inline-block;
+  width: 100%;
+  font-size: 80%;
+}
+
+a {
+  &:link,
+  &:hover,
+  &:active,
+  &:visited {
+    text-decoration: none;
+  }
+
+  @include transition;
+}
+
+@each $align in left, center, right {
+  .text-#{$align} {
+    text-align: $align !important;
+  }
+}
+
+@each $breakpoint, $width in $breakpoints {
+  @include media($breakpoint) {
+    @each $align in left, center, right {
+      .text-#{$breakpoint}-#{$align} {
+        text-align: $align !important;
+      }
+    }
+  }
+}

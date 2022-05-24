@@ -1,0 +1,20 @@
+include ../../data/person
+
+// === SKILLS (BEGIN)
+section(class="bnd-section bnd-skills bnd-skills-1", id="skills")
+  div(class="container")
+    div(class="row")
+      div(class="col-lg-7 mb-5 mb-lg-0")
+        span(class="color-primary") What I can do
+        h2 Skills
+        ul(class="skills-list")
+          each skill in person.skills
+            li(class="progress js-progress", data-value=skill.value)
+              span(class="progress-details")
+                span(class="progress-name")= skill.name
+                span(class="progress-value js-counter", data-from="0", data-to=skill.value) 0%
+              span(class="progress-bar")
+                span(class="progress-line")
+      div(class="col-lg-4 offset-lg-1 mt-5 mt-lg-0")
+        include ../education/education-1
+// === SKILLS (END)

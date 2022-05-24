@@ -1,0 +1,23 @@
+include ../../data/person
+
+// === PORTFOLIO (BEGIN)
+section(class="bnd-section bnd-portfolio bnd-portfolio-1" id="portfolio")
+  div(class="container")
+    div(class="row")
+      div(class="col-12")
+        div(class="text-center")
+          span(class="color-primary") My projects
+          h2 Portfolio
+        ul(class="portfolio-controls" id="js-portfolio-controls")
+          each category in person.portfolio.categories
+            li
+              button(data-group=category.group)= category.name
+        div(class="portfolio-items" id="js-portfolio")
+          each item in person.portfolio.items
+            div(class="js-portfolio-item portfolio-item" data-groups!=item.groups data-title=item.name)
+              a(href="javascript:void(0)" data-modal-open="portfolio-modal")
+                img(class="portfolio-item-image" src="img/placeholder/1440x1120.jpg" alt=item.name)
+                div(class="portfolio-item-details")
+                  h3(class="portfolio-item-title")= item.name
+                  // p= record.except
+// === PORTFOLIO (END)

@@ -1,0 +1,11 @@
+@use "sass:color";
+@use "sass:map";
+@import "../variables";
+@import "../mixins";
+
+/* === SOCIAL */
+.bnd-social {
+  &-list {
+    @extend %social-networks;
+  }
+}

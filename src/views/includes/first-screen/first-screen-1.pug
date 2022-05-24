@@ -1,0 +1,19 @@
+include ../../data/env
+include ../../data/theme
+include ../../data/person
+
+// === FIRST SCREEN (BEGIN)
+section(class="bnd-first-screen bnd-first-screen-1" id="home")
+  div(class="container")
+    div(class="row d-flex align-items-center")
+      div(class="col-lg-6")
+        span(class="color-primary") Hello, my name is
+        h1= person.name
+        p(class="pt-3 text-5")
+          | And I'm a
+          |
+          strong(class="js-typed" data-strings="Designer, Freelancer, Developer, Photographer")
+        a(class="btn is-primary mt-4" href="#about") About me
+      div(class="col-lg-5 offset-lg-1 d-none d-lg-block")
+        img(class="bnd-first-screen-image" data-aos="fade-left" src="img/placeholder/890x1330.jpg" alt="890x1330")
+// === FIRST SCREEN (END)

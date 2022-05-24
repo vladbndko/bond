@@ -1,0 +1,30 @@
+@use 'sass:map';
+@use 'sass:color';
+@import '../variables';
+@import '../mixins';
+
+/* === MESSAGE */
+.message {
+  padding: map.get(map.get($box-padding, xs), y) map.get(map.get($box-padding, xs), x);
+  border-radius: $element-border-radius;
+
+  &.is-success {
+    background-color: rgba(map.get($green, 500), 0.3);
+    color: color.mix(map.get($green, 500), black, 50%);
+  }
+
+  &.is-danger {
+    background-color: rgba(map.get($red, 500), 0.3);
+    color: color.mix(map.get($red, 500), black, 50%);
+  }
+
+  &.is-info {
+    background-color: rgba(map.get($blue, 500), 0.3);
+    color: color.mix(map.get($blue, 500), black, 50%);
+  }
+
+  &.is-warning {
+    background-color: rgba(map.get($orange, 500), 0.3);
+    color: color.mix(map.get($orange, 500), black, 50%);
+  }
+}

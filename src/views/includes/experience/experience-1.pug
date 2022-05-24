@@ -1,0 +1,22 @@
+include ../../data/person
+
+// === EXPERIENCE (BEGIN)
+section(class="bnd-section bnd-experience bnd-experience-1", id="experience")
+  div(class="container")
+    div(class="row")
+      div(class="col-lg-8 offset-lg-2")
+        span(class="color-primary") My jobs
+        h2 Experience
+        div(class="experience-items")
+          each experience in person.experiences
+            div(class="experience-item")
+              div(class="experience-item-dot" data-aos="zoom-in")
+              div(class="experience-item-left" data-aos="fade-right")
+                strong= experience.years
+                br
+                span= experience.company
+                br
+                span(class="color-gray")= experience.position
+              div(class="experience-item-right" data-aos="fade-left")
+                p= experience.description
+// === EXPERIENCE (END)
