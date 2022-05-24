@@ -7,11 +7,11 @@ npm install
 ```
 **Development**
 ```sh
-make dev # or npm start
+make dev
 ```
 **Build**
 ```sh
-make build # or npm run build
+make build
 ```
 
 ## Description

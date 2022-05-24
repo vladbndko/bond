@@ -5,7 +5,7 @@ install:
 	npm ci
 
 dev:
-	npm start
+	cross-env NODE_ENV=development; npm start
 
 build:
-	npm run build
+	cross-env NODE_ENV=production; npm run build
