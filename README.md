@@ -260,13 +260,13 @@ Insure you have included `css/<name>.css` css file with your chosen color scheme
 
     <!-- === Hidden Required Fields (BEGIN)-->
     <input type="hidden" name="site_name" value="BOND"> 
-    <input type="hidden" name="admin_email" value="bondarenkos.space@gmail.com">
+    <input type="hidden" name="admin_email" value="bond@mail.com">
     
 
 You need to change 2 values:
 
 1.  **BOND** - Site name
-2.  **bondarenkos.space@gmail.com** - You'll receive messages on this mail address
+2.  **bond@mail.com** - You'll receive messages on this mail address
 
 * * *
 
